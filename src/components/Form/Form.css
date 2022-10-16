@@ -1,0 +1,54 @@
+:root {
+    --border-color: #046588
+}
+
+header img {
+    width: 15rem;
+}
+
+.form p {
+    margin-bottom: 1rem;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-actions {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-actions input {
+    width: 20rem;
+    height: 2rem;
+    padding: .5rem;
+
+    border: 1px solid black;
+}
+
+.form-actions button {
+    width: 2rem;
+    height: 2rem;
+
+    margin-left: 1rem;
+
+    background-color: #35a9e1;
+    border: 1px solid black;
+    color: white;
+
+    transition: .3s;
+
+    cursor: pointer;
+}
+
+.form-actions button:hover {
+    opacity: .75;
+    transition: .3s;
+}
+
+.result {
+    margin-top: 5rem;
+}
