@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import Zoom from 'react-reveal/Zoom';
-
 import logo from '../../assets/logo.png'
 import { AiOutlineSearch } from 'react-icons/ai'
 
@@ -11,9 +9,11 @@ import { Map } from '../Map/Map';
 export function Form() {
 
     const [address, setAddress] = useState('')
+    const [addressProp, setAddressProp] = useState("Londrina")
 
     function consultAPI() {
-        console.log("Busca na API!")
+        // Quando der enter vai passar o enderço como prop
+        setAddressProp(address)
     }
 
     function keyPress(e) {
@@ -24,21 +24,19 @@ export function Form() {
 
     return (
         <div className='container'>
-            <Zoom>
                 <header>
                     <a href="home.persisinternet.com.br" target="_blank"><img src={logo} alt="Logo da Persis" /></a>
                 </header>
                 <div className="form">
-                    <p>Descubra qual o melhor período seu agendamento!</p>
+                    <p>Descubra qual o melhor período para seu agendamento!</p>
                     <div className="form-actions">
                         <input type="text" placeholder='Digite o endereço' onChange={(e) => setAddress(e.target.value)} onKeyUp={(e) => keyPress(e)} />
                         <button onClick={consultAPI}><AiOutlineSearch size={20} /></button>
                     </div>
                 </div>
                 <div className="result">
-                    <Map />
+                    <Map address={addressProp}/>
                 </div>
-            </Zoom>
         </div>
     )
 }

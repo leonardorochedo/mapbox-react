@@ -5,7 +5,9 @@
 }
 
 body {
-    background-color: grey;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(115deg, #ffffffd7 0%, #1df9fdc9 20%, #4573fcd2 100%) no-repeat;
 }
 
 .container {
