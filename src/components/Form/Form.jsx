@@ -41,6 +41,11 @@ export function Form() {
             <AiOutlineSearch size={20} />
           </button>
         </div>
+        <p className="warning">
+          caso não coloque o endereço precisamente
+          <br />
+          será pegado a localização mais próxima
+        </p>
       </div>
       <div className="result">
         <Map address={addressProp} />

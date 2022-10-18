@@ -57,7 +57,7 @@ export function Map({ ...props }) {
             lat: data.results[0].geometry.location.lat,
             lng: data.results[0].geometry.location.lng,
           });
-        } else {
+        } else if (data.status === "ZERO_RESULTS") {
           console.log("BAD REQUEST");
           const element = document.querySelector(".elem");
           element.style.opacity = "1";

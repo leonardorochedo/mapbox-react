@@ -14,6 +14,14 @@ header img {
   font-weight: bold;
 }
 
+.form p.warning {
+  color: black;
+  font-size: 12px;
+  font-style: italic;
+
+  margin-top: 1rem;
+}
+
 .form-actions {
   display: flex;
   text-align: center;
@@ -47,10 +55,6 @@ header img {
 .form-actions button:hover {
   opacity: 0.75;
   transition: 0.3s;
-}
-
-.result {
-  margin-top: 1rem;
 }
 
 .tecnics {
