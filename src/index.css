@@ -1,21 +1,34 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    overflow: hidden;
-    height: 100vh;
-    background: linear-gradient(115deg, #ffffffd7 0%, #1df9fdc9 20%, #4573fcd2 100%) no-repeat;
+  overflow: hidden;
+  height: 100vh;
+  background: linear-gradient(
+      115deg,
+      #ffffffd7 0%,
+      #1df9fdc9 20%,
+      #4573fcd2 100%
+    )
+    no-repeat;
 }
 
 .container {
-    margin: 1rem 0;
+  margin: 1rem 0;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

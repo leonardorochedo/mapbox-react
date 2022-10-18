@@ -50,7 +50,7 @@ header img {
 }
 
 .result {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .tecnics {
@@ -72,6 +72,13 @@ header img {
 .tec2 h3 {
   color: black;
   margin: 1rem 0;
+}
+
+.tec1 p,
+.tec2 p {
+  color: white;
+  margin: 0.5rem 0;
+  border: 1px solid black;
 }
 
 .tec1 p#soon {
