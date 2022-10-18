@@ -13,4 +13,8 @@ h1 {
   margin-bottom: 1rem;
   color: red;
   opacity: 0;
+
+  background-color: #f3f163;
+
+  transition: 0.3s;
 }
