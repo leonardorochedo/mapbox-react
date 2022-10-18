@@ -37,13 +37,14 @@ export function Map({ ...props }) {
     useEffect(() => {
         console.log(`Endereço buscado: ${address}`)
 
-        fetch(`https://maps.google.com/maps/api/geocode/json?key${APIKey}=&address=${address}&sensor=false`)
+        fetch(`https://maps.google.com/maps/api/geocode/json?key=${APIKey}&address=${address}&sensor=false`)
         .then((response) => response.json())
         .then((data) => {
-            // setClientCoord({
-            //     lat: data.results[0].geometry.location.lat,
-            //     lgn: data.results[0].geometry.location.lgn
-            // })
+            // console.log(data.results[0].geometry.location)
+            setClientCoord({
+                lat: data.results[0].geometry.location.lat,
+                lng: data.results[0].geometry.location.lng
+            })
         })
         .catch(err => console.log(err))
     }, [address])
