@@ -50,7 +50,7 @@ export function Map({ ...props }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        if (data.status == 200) {
+        if (data.status == 200 || data.status === "OK") {
           const element = document.getElementsByClassName("elem");
           element.style.opacity = 0;
           setClientCoord({
