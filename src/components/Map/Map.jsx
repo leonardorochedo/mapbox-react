@@ -10,6 +10,7 @@ import {
 import "./Map.css";
 
 export function Map({ ...props }) {
+  const [apiMessage, setApiMessage] = useState("");
   const [clientCoord, setClientCoord] = useState({
     lat: -23.3197,
     lng: -51.1662,
@@ -49,11 +50,17 @@ export function Map({ ...props }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.results[0].geometry.location)
-        setClientCoord({
-          lat: data.results[0].geometry.location.lat,
-          lng: data.results[0].geometry.location.lng,
-        });
+        if (data.status == 200) {
+          const element = document.getElementsByClassName("elem");
+          element.style.opacity = 0;
+          setClientCoord({
+            lat: data.results[0].geometry.location.lat,
+            lng: data.results[0].geometry.location.lng,
+          });
+        } else {
+          const element = document.getElementsByClassName("elem");
+          element.style.opacity = 1;
+        }
       })
       .catch((err) => console.log(err));
   }, [address]);
@@ -180,32 +187,35 @@ export function Map({ ...props }) {
   };
 
   return (
-    <div className="map">
-      {isLoaded ? (
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={cityPosition}
-          zoom={11.5}
-        >
-          <Marker
-            position={clientPosition}
-            options={{
-              label: {
-                text: "Cliente",
-                className: "marker",
-              },
-            }}
-          />
-          <Polygon paths={zonaSulLeste} options={optionsZSL} />
-          <Polygon paths={zonaSulOeste} options={optionsZSO} />
-          <Polygon paths={zonaNorteOeste} options={optionsZNO} />
-          <Polygon paths={zonaNorteLeste} options={optionsZNL} />
-        </GoogleMap>
-      ) : (
-        <>
-          <p>ERRO DE REQUISIÇÃO!</p>
-        </>
-      )}
-    </div>
+    <>
+      <h1 className="elem">ENDEREÇO INVÁLIDO!!</h1>
+      <div className="map">
+        {isLoaded ? (
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={cityPosition}
+            zoom={11.5}
+          >
+            <Marker
+              position={clientPosition}
+              options={{
+                label: {
+                  text: "Cliente",
+                  className: "marker",
+                },
+              }}
+            />
+            <Polygon paths={zonaSulLeste} options={optionsZSL} />
+            <Polygon paths={zonaSulOeste} options={optionsZSO} />
+            <Polygon paths={zonaNorteOeste} options={optionsZNO} />
+            <Polygon paths={zonaNorteLeste} options={optionsZNL} />
+          </GoogleMap>
+        ) : (
+          <>
+            <p>ERRO DE REQUISIÇÃO!</p>
+          </>
+        )}
+      </div>
+    </>
   );
 }

@@ -47,12 +47,12 @@ export function Form() {
       </div>
       <div className="tecnics">
         <div className="tec1">
-          <h3>TEC 1</h3>
+          <h3>Técnico 1</h3>
           <p id="soon">Manhã</p>
           <p id="late">Tarde</p>
         </div>
         <div className="tec2">
-          <h3>TEC 2</h3>
+          <h3>Técnico 2</h3>
           <p id="soon">Manhã</p>
           <p id="late">Tarde</p>
         </div>
