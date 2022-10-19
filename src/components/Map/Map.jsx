@@ -107,6 +107,8 @@ export function Map({ ...props }) {
   const optionsZSL = {
     fillColor: "blue",
     strokeColor: "blue",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
   };
 
   const zonaSulOeste = [
@@ -132,6 +134,8 @@ export function Map({ ...props }) {
   const optionsZSO = {
     fillColor: "red",
     strokeColor: "red",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
   };
 
   const zonaNorteOeste = [
@@ -162,6 +166,8 @@ export function Map({ ...props }) {
   const optionsZNO = {
     fillColor: "yellow",
     strokeColor: "yellow",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
   };
 
   const zonaNorteLeste = [
@@ -184,6 +190,86 @@ export function Map({ ...props }) {
   const optionsZNL = {
     fillColor: "black",
     strokeColor: "black",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
+  };
+
+  // Others
+  const cambe = [
+    { lng: -51.264267, lat: -23.2504942 },
+    { lng: -51.2862396, lat: -23.2508096 },
+    { lng: -51.3044357, lat: -23.2627958 },
+    { lng: -51.3054657, lat: -23.2820345 },
+    { lng: -51.2982559, lat: -23.3025318 },
+    { lng: -51.2735367, lat: -23.3100992 },
+    { lng: -51.2306213, lat: -23.3179814 },
+    { lng: -51.2158585, lat: -23.3116757 },
+    { lng: -51.2072754, lat: -23.2971713 },
+    { lng: -51.2189484, lat: -23.2725732 },
+    { lng: -51.2374878, lat: -23.2612188 },
+    { lng: -51.2649536, lat: -23.2511251 },
+  ];
+
+  const jataizinho = [
+    { lng: -50.9749317, lat: -23.2465511 },
+    { lng: -50.9802532, lat: -23.2493113 },
+    { lng: -50.9855747, lat: -23.2531754 },
+    { lng: -50.9888363, lat: -23.2574337 },
+    { lng: -50.9838581, lat: -23.2643729 },
+    { lng: -50.9787083, lat: -23.2687885 },
+    { lng: -50.9751892, lat: -23.2732828 },
+    { lng: -50.970211, lat: -23.2759636 },
+    { lng: -50.9637737, lat: -23.2739136 },
+    { lng: -50.9570789, lat: -23.2684731 },
+    { lng: -50.9526157, lat: -23.2633478 },
+    { lng: -50.9516716, lat: -23.2562509 },
+    { lng: -50.9624863, lat: -23.2493902 },
+    { lng: -50.9668636, lat: -23.2468666 },
+    { lng: -50.9715843, lat: -23.2456836 },
+    { lng: -50.9747601, lat: -23.2469454 },
+  ];
+
+  const options2HR = {
+    fillColor: "purple",
+    strokeColor: "purple",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
+  };
+
+  const ibipora = [
+    { lng: -51.0845375, lat: -23.282823 },
+    { lng: -51.0823059, lat: -23.2714694 },
+    { lng: -51.0774994, lat: -23.2670538 },
+    { lng: -51.0756111, lat: -23.2627958 },
+    { lng: -51.0687447, lat: -23.2577491 },
+    { lng: -51.0654831, lat: -23.2542794 },
+    { lng: -51.0569, lat: -23.2474975 },
+    { lng: -51.046772, lat: -23.2449739 },
+    { lng: -51.0400772, lat: -23.247182 },
+    { lng: -51.036129, lat: -23.2497056 },
+    { lng: -51.0320091, lat: -23.2495479 },
+    { lng: -51.0278893, lat: -23.2504942 },
+    { lng: -51.0266876, lat: -23.2542794 },
+    { lng: -51.026001, lat: -23.2596417 },
+    { lng: -51.0237694, lat: -23.2638998 },
+    { lng: -51.0150146, lat: -23.2659499 },
+    { lng: -51.0091782, lat: -23.2721001 },
+    { lng: -51.0102081, lat: -23.2785655 },
+    { lng: -51.0124397, lat: -23.2873957 },
+    { lng: -51.0193062, lat: -23.2935449 },
+    { lng: -51.0411072, lat: -23.2973289 },
+    { lng: -51.0617065, lat: -23.2949639 },
+    { lng: -51.0721779, lat: -23.2954369 },
+    { lng: -51.0800743, lat: -23.2921259 },
+    { lng: -51.0840225, lat: -23.2859766 },
+    { lng: -51.0843658, lat: -23.2829806 },
+  ];
+
+  const optionsIBI = {
+    fillColor: "orange",
+    strokeColor: "orange",
+    fillOpacity: 0.1,
+    strokeOpacity: 0.1,
   };
 
   return (
@@ -209,6 +295,9 @@ export function Map({ ...props }) {
             <Polygon paths={zonaSulOeste} options={optionsZSO} />
             <Polygon paths={zonaNorteOeste} options={optionsZNO} />
             <Polygon paths={zonaNorteLeste} options={optionsZNL} />
+            <Polygon paths={cambe} options={options2HR} />
+            <Polygon paths={jataizinho} options={options2HR} />
+            <Polygon paths={ibipora} options={optionsIBI} />
           </GoogleMap>
         ) : (
           <>

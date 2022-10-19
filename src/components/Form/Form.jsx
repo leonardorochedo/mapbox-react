@@ -61,6 +61,16 @@ export function Form() {
           <p id="soon">Manhã</p>
           <p id="late">Tarde</p>
         </div>
+        <div className="others1">
+          <h3>2 Horários</h3>
+          <p id="cambe">Cambé</p>
+          <p id="uniao">União</p>
+          <p id="uniao">Jataizinho</p>
+        </div>
+        <div className="others2">
+          <h3>Fim de Tarde</h3>
+          <p id="ibipora">Ibiporã</p>
+        </div>
       </div>
     </div>
   );
