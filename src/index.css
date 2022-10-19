@@ -10,8 +10,8 @@ body {
       #ffffffd7 0%,
       #1df9fdc9 20%,
       #4573fcd2 100%
-    )
-    no-repeat;
+    );
+    background-attachment: fixed;
 }
 
 .container {
