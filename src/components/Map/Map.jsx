@@ -11,8 +11,8 @@ import "./Map.css";
 
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
-    lat: -23.3197,
-    lng: -51.1662,
+    lat: -0,
+    lng: -0,
   });
 
   // Maps Properthy
@@ -107,8 +107,8 @@ export function Map({ ...props }) {
   const optionsZSL = {
     fillColor: "blue",
     strokeColor: "blue",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   const zonaSulOeste = [
@@ -134,8 +134,8 @@ export function Map({ ...props }) {
   const optionsZSO = {
     fillColor: "red",
     strokeColor: "red",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   const zonaNorteOeste = [
@@ -166,8 +166,8 @@ export function Map({ ...props }) {
   const optionsZNO = {
     fillColor: "yellow",
     strokeColor: "yellow",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   const zonaNorteLeste = [
@@ -190,8 +190,8 @@ export function Map({ ...props }) {
   const optionsZNL = {
     fillColor: "black",
     strokeColor: "black",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   // Others
@@ -232,8 +232,8 @@ export function Map({ ...props }) {
   const options2HR = {
     fillColor: "purple",
     strokeColor: "purple",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   const ibipora = [
@@ -268,8 +268,8 @@ export function Map({ ...props }) {
   const optionsIBI = {
     fillColor: "orange",
     strokeColor: "orange",
-    fillOpacity: 0.1,
-    strokeOpacity: 0.1,
+    fillOpacity: 0.5,
+    strokeOpacity: 0.5,
   };
 
   return (
