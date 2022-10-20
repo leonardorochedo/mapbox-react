@@ -24,7 +24,7 @@ export function Form() {
   return (
     <div className="container">
       <header>
-        <a href="home.persisinternet.com.br" target="_blank">
+        <a href="https://home.persisinternet.com.br" target="_blank">
           <img src={logo} alt="Logo da Persis" />
         </a>
       </header>
