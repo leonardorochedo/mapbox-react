@@ -24,8 +24,8 @@ export function Map({ ...props }) {
   });
 
   const containerStyle = {
-    width: "35rem",
-    height: "27rem",
+    width: "50rem",
+    height: "32rem",
   };
 
   const cityPosition = {
