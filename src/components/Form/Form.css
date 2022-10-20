@@ -1,7 +1,3 @@
-:root {
-  --border-color: #046588;
-}
-
 header img {
   width: 15rem;
 }
@@ -57,11 +53,21 @@ header img {
   transition: 0.3s;
 }
 
-.tecnics {
+.map {
+  width: 50rem;
+  height: 32rem;
+}
+
+.map-table {
   display: flex;
   flex-direction: row;
+}
 
-  margin-top: 1rem;
+.tecnics {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 5rem;
 }
 
 .tec1,
@@ -79,7 +85,7 @@ header img {
 .others1 h3,
 .others2 h3 {
   color: black;
-  margin: 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 .tec1 p,

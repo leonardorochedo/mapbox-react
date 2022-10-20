@@ -44,32 +44,34 @@ export function Form() {
         <p className="warning">
           caso não coloque o endereço precisamente
           <br />
-          será pegado a localização mais próxima
+          será pego a localização mais próxima
         </p>
       </div>
-      <div className="result">
-        <Map address={addressProp} />
-      </div>
-      <div className="tecnics">
-        <div className="tec1">
-          <h3>Técnico 1</h3>
-          <p id="soon">Manhã</p>
-          <p id="late">Tarde</p>
+      <div className="map-table">
+        <div className="result">
+          <Map address={addressProp} />
         </div>
-        <div className="tec2">
-          <h3>Técnico 2</h3>
-          <p id="soon">Manhã</p>
-          <p id="late">Tarde</p>
-        </div>
-        <div className="others1">
-          <h3>2 Horários</h3>
-          <p id="cambe">Cambé</p>
-          <p id="uniao">União</p>
-          <p id="uniao">Jataizinho</p>
-        </div>
-        <div className="others2">
-          <h3>Fim de Tarde</h3>
-          <p id="ibipora">Ibiporã</p>
+        <div className="tecnics">
+          <div className="tec1">
+            <h3>Técnico 1</h3>
+            <p id="soon">Manhã</p>
+            <p id="late">Tarde</p>
+          </div>
+          <div className="tec2">
+            <h3>Técnico 2</h3>
+            <p id="soon">Manhã</p>
+            <p id="late">Tarde</p>
+          </div>
+          <div className="others1">
+            <h3>2 Horários</h3>
+            <p id="cambe">Cambé</p>
+            <p id="uniao">União</p>
+            <p id="uniao">Jataizinho</p>
+          </div>
+          <div className="others2">
+            <h3>Fim de Tarde</h3>
+            <p id="ibipora">Ibiporã</p>
+          </div>
         </div>
       </div>
     </div>
