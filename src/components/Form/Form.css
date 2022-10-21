@@ -5,7 +5,6 @@ header img {
 .form p {
   margin-bottom: 1rem;
   color: white;
-
   font-size: 18px;
   font-weight: bold;
 }
@@ -14,7 +13,6 @@ header img {
   color: black;
   font-size: 12px;
   font-style: italic;
-
   margin-top: 1rem;
 }
 
@@ -29,22 +27,18 @@ header img {
   width: 20rem;
   height: 2rem;
   padding: 0.5rem;
-
   border: 1px solid black;
 }
 
 .form-actions button {
   width: 2rem;
   height: 2rem;
-
   margin-left: 1rem;
 
   background-color: #35a9e1;
   border: 1px solid black;
   color: white;
-
   transition: 0.3s;
-
   cursor: pointer;
 }
 
