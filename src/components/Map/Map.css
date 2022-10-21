@@ -22,9 +22,9 @@ h1 {
 
 
 .bshow-text{
-  font-size: 18px;
+  font-size: 16px;
   color: black;
   font-family: 'Roboto', sans-serif;;
   width: 200px;
-  text-shadow: -1px -1px 0 #fff,  1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;
+  text-shadow: -1px -1px 0 #ffffff9c,  1px -1px 0 #ffffff9c,-1px 1px 0 #ffffff9c,1px 1px 0 #ffffff9c;
 }

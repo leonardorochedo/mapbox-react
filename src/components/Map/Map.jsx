@@ -318,7 +318,7 @@ export function Map({ ...props }) {
     strokeOpacity: 0.3,
   };
 
-  const uniaoPos = { lat: -23.3824407, lng: -51.1297703}, greenVillagePos = { lat: -23.3006595, lng: -51.3143277}
+  const uniaoPos = { lat: -23.3843315, lng: -51.1348343}, greenVillagePos = { lat: -23.298945, lng: -51.3202715}
 
   return (
     <>
