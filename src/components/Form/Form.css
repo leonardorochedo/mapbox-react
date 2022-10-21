@@ -5,7 +5,6 @@ header img {
 .form p {
   margin-bottom: 1rem;
   color: white;
-
   font-size: 18px;
   font-weight: bold;
 }
@@ -14,7 +13,6 @@ header img {
   color: black;
   font-size: 12px;
   font-style: italic;
-
   margin-top: 1rem;
 }
 
@@ -29,22 +27,18 @@ header img {
   width: 20rem;
   height: 2rem;
   padding: 0.5rem;
-
   border: 1px solid black;
 }
 
 .form-actions button {
   width: 2rem;
   height: 2rem;
-
   margin-left: 1rem;
 
   background-color: #35a9e1;
   border: 1px solid black;
   color: white;
-
   transition: 0.3s;
-
   cursor: pointer;
 }
 
@@ -66,7 +60,7 @@ header img {
 .tecnics {
   display: flex;
   flex-direction: column;
-
+  margin-top: -15rem;
   margin-left: 5rem;
 }
 
@@ -76,7 +70,7 @@ header img {
 .others2 {
   display: flex;
   flex-direction: column;
-
+  width: 140px;
   margin: 0 1.5rem;
 }
 
@@ -95,6 +89,19 @@ header img {
   color: white;
   margin: 0.5rem 0;
   border: 1px solid black;
+}
+
+.others1 p:first-of-type {
+  border: none;
+  width: 300px;
+  text-align: left;
+  margin-left: -70px;
+  color: black;
+}
+
+.others1 p hr {
+  margin: 10px 0;
+  border-color: black;
 }
 
 .tec1 p#soon {

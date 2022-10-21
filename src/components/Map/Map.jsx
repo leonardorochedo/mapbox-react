@@ -5,6 +5,7 @@ import {
   useJsApiLoader,
   Marker,
   Polygon,
+  InfoBox,
 } from "@react-google-maps/api";
 
 import "./Map.css";
@@ -317,6 +318,8 @@ export function Map({ ...props }) {
     strokeOpacity: 0.3,
   };
 
+  const uniaoPos = { lat: -23.3824407, lng: -51.1297703}, greenVillagePos = { lat: -23.3006595, lng: -51.3143277}
+
   return (
     <>
       <h1 className="elem">ENDEREÇO INVÁLIDO!!</h1>
@@ -336,6 +339,21 @@ export function Map({ ...props }) {
                 },
               }}
             />
+
+            <InfoBox
+                options={{closeBoxURL: ''}}
+                position={uniaoPos}
+            >
+                  <span className="bshow-text">União</span>
+            </InfoBox>
+
+            <InfoBox
+                options={{closeBoxURL: ''}}
+                position={greenVillagePos}
+            >
+                  <span className="bshow-text">Green Village</span>
+            </InfoBox>
+            
             <Polygon paths={zonaSulLeste} options={optionsZSL} />
             <Polygon paths={zonaSulOeste} options={optionsZSO} />
             <Polygon paths={zonaNorteOeste} options={optionsZNO} />
