@@ -66,7 +66,7 @@ header img {
 .tecnics {
   display: flex;
   flex-direction: column;
-
+  margin-top: -15rem;
   margin-left: 5rem;
 }
 
@@ -76,7 +76,7 @@ header img {
 .others2 {
   display: flex;
   flex-direction: column;
-
+  width: 140px;
   margin: 0 1.5rem;
 }
 
@@ -95,6 +95,19 @@ header img {
   color: white;
   margin: 0.5rem 0;
   border: 1px solid black;
+}
+
+.others1 p:first-of-type {
+  border: none;
+  width: 300px;
+  text-align: left;
+  margin-left: -70px;
+  color: black;
+}
+
+.others1 p hr {
+  margin: 10px 0;
+  border-color: black;
 }
 
 .tec1 p#soon {
