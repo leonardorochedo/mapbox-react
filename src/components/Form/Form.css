@@ -82,6 +82,10 @@ header img {
   margin: 2rem 0 1rem 0;
 }
 
+.others1 h3:first-child {
+  margin: 2rem 0 0;
+}
+
 .tec1 p,
 .tec2 p,
 .others1 p,
@@ -101,9 +105,8 @@ header img {
   color: black;
 }
 
-.others1 p hr {
-  margin: 10px 0;
-  border-color: black;
+#final-li {
+  margin: 0.5rem 0 1.5rem -50px;
 }
 
 .tec1 p#soon {

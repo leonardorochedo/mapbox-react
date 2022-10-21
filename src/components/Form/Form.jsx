@@ -66,15 +66,14 @@ export function Form() {
             <h3>2 Horários</h3>
             <ul>
               <li>Ocupar 2 horários na agenda.</li>
+              <li>Se houver mais de um cliente, 2 horários para apenas 1.</li>
               <li>
-                Se houver mais de um cliente, 2 horários para apenas 1.
-                <br />
                 Período deve ser o mais próximo do descrito no mapa;
                 <br />
                 Ex: Endereço mais próximo está para tarde, tentar agendar para
                 tarde.
               </li>
-              <li>
+              <li id="final-li">
                 Preferência para agenda que já tiver agendamento da cidade.
               </li>
             </ul>
