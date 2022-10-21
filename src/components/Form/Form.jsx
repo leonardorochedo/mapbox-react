@@ -64,18 +64,20 @@ export function Form() {
           </div>
           <div className="others1">
             <h3>2 Horários</h3>
-            <p>
-              Ocupar 2 horários na agenda.
-              <hr />
-              Se houver mais de um cliente, 2 horários para apenas 1.
-              <hr />
-              Período deve ser o mais próximo do descrito no mapa;
-              <br />
-              Ex: Endereço mais próximo está para tarde, tentar agendar para
-              tarde.
-              <hr />
-              Preferência para agenda que já tiver agendamento da cidade.
-            </p>
+            <ul>
+              <li>Ocupar 2 horários na agenda.</li>
+              <li>
+                Se houver mais de um cliente, 2 horários para apenas 1.
+                <br />
+                Período deve ser o mais próximo do descrito no mapa;
+                <br />
+                Ex: Endereço mais próximo está para tarde, tentar agendar para
+                tarde.
+              </li>
+              <li>
+                Preferência para agenda que já tiver agendamento da cidade.
+              </li>
+            </ul>
             <p id="cambe">Cambé</p>
             <p id="uniao">União</p>
             <p id="uniao">Jataizinho</p>
