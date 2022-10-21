@@ -69,10 +69,12 @@ export function Form() {
               <li>
                 Se houver mais de um cliente, 2 horários para apenas 1.
                 <br />
-                Período deve ser o mais próximo do descrito no mapa;
-                <br />
-                Ex: Endereço mais próximo está para tarde, tentar agendar para
-                tarde.
+                <li>
+                  Período deve ser o mais próximo do descrito no mapa;
+                  <br />
+                  Ex: Endereço mais próximo está para tarde, tentar agendar para
+                  tarde.
+                </li>
               </li>
               <li>
                 Preferência para agenda que já tiver agendamento da cidade.
