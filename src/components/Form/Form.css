@@ -91,11 +91,13 @@ header img {
   border: 1px solid black;
 }
 
-.others1 p:first-of-type {
+.others1 li {
+  font-family: sans-serif;
   border: none;
   width: 300px;
   text-align: left;
-  margin-left: -70px;
+  margin-left: -50px;
+  margin-top: 0.5rem;
   color: black;
 }
 
