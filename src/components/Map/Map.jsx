@@ -2,11 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 
 import mapboxgl from 'mapbox-gl';
 import "./Map.css";
+
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
-    lat: -0,
-    lng: -0,
+    lat: -23.3197,
+    lng: -51.1662,
   });
+
+  const cityPosition = {
+    lat: -23.3197,
+    lng: -51.1662,
+  };
+  
+  const address = props.address;
 
   const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
 
@@ -16,26 +24,27 @@ export function Map({ ...props }) {
   const map = useRef(null);
   const [zoom, setZoom] = useState(12);
 
+  // Create a Map
   useEffect(() => {
-    console.log("@@@@@@@@@")
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [cityPosition.lng, cityPosition.lat],
       zoom: zoom,
-      antialias: true,
+      antialias: true
     });
   });
 
 
 
+  // Map on load
   useEffect(() => {
     if (!map.current) return;
     // wait for map to initialize
     map.current.on('load', () => {
-       setZoom(map.current.getZoom().toFixed(2));
+      setZoom(map.current.getZoom().toFixed(2));
 
       map.current.addSource('zSulLeste', {
         'type': 'geojson',
@@ -61,12 +70,12 @@ export function Map({ ...props }) {
     });
   })
 
-  const cityPosition = {
-    lat: -23.319797189377564,
-    lng: -51.16667335885555,
-  };
-
-  const address = props.address;
+  // Map Marker
+  useEffect(() => {
+    const marker = new mapboxgl.Marker({ color: 'red', rotation: 30 })
+      .setLngLat([clientCoord.lng, clientCoord.lat])
+      .addTo(map.current);
+  }, [address])
 
   // API Geocoding
   useEffect(() => {
