@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import {
-  GoogleMap,
-  useJsApiLoader,
-  Marker,
-  Polygon,
-  InfoBox,
-} from "@react-google-maps/api";
+import mapboxgl from 'mapbox-gl';
 
-import "./Map.css";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
@@ -16,52 +10,51 @@ export function Map({ ...props }) {
     lng: -0,
   });
 
-  // Maps Properthy
-  const APIKey = "AIzaSyAdBoUyPOSs38DpDX7l4INc_jF5kfKbsj4";
+  const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
+  mapboxgl.accessToken = apiKey;
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: APIKey,
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [zoom, setZoom] = useState(9);
+
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+    container: mapContainer.current,
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [cityPosition.lng, cityPosition.lat],
+    zoom: zoom
+    });
   });
 
-  const containerStyle = {
-    width: "50rem",
-    height: "32rem",
-  };
+  useEffect(() => {
+    if (!map.current) return; // wait for map to initialize
+    map.current.on('move', () => {
+    setLng(map.current.getCenter().lng.toFixed(4));
+    setLat(map.current.getCenter().lat.toFixed(4));
+    setZoom(map.current.getZoom().toFixed(2));
+    });
+  });
 
   const cityPosition = {
     lat: -23.3197,
     lng: -51.1662,
   };
 
-  const clientPosition = {
-    lat: clientCoord.lat,
-    lng: clientCoord.lng,
-  };
-
   const address = props.address;
 
-  // Mudança de endereço
+  // API Geocoding
   useEffect(() => {
-    console.log(`Endereço buscado: ${address}`);
-
     fetch(
-      `https://maps.google.com/maps/api/geocode/json?key=${APIKey}&address=${address}&sensor=false`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
-        if (data.status == 200 || data.status === "OK") {
-          console.log("OK");
-          const element = document.querySelector(".elem");
-          element.style.opacity = "0";
+        if (data.features) { // Se view algo na response
           setClientCoord({
-            lat: data.results[0].geometry.location.lat,
-            lng: data.results[0].geometry.location.lng,
+            lat: data.features[0].center[1],
+            lng: data.features[0].center[0],
           });
-        } else if (data.status === "ZERO_RESULTS") {
-          console.log("BAD REQUEST");
-          const element = document.querySelector(".elem");
-          element.style.opacity = "1";
         }
       });
   }, [address]);
@@ -318,54 +311,27 @@ export function Map({ ...props }) {
     strokeOpacity: 0.3,
   };
 
-  const uniaoPos = { lat: -23.3843315, lng: -51.1348343}, greenVillagePos = { lat: -23.298945, lng: -51.3202715}
+  const uniaoPos = {
+    lat: -23.3843315,
+    lng: -51.1348343
+  }
+  
+  const greenVillagePos = {
+    lat: -23.298945,
+    lng: -51.3202715
+  }
 
   return (
     <>
-      <h1 className="elem">ENDEREÇO INVÁLIDO!!</h1>
       <div className="map">
-        {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={cityPosition}
-            zoom={12}
-          >
-            <Marker
-              position={clientPosition}
-              options={{
-                label: {
-                  text: "Cliente",
-                  className: "marker",
-                },
-              }}
-            />
-
-            <InfoBox
-                options={{closeBoxURL: ''}}
-                position={uniaoPos}
-            >
-                  <span className="bshow-text">União</span>
-            </InfoBox>
-
-            <InfoBox
-                options={{closeBoxURL: ''}}
-                position={greenVillagePos}
-            >
-                  <span className="bshow-text">Green Village</span>
-            </InfoBox>
-            
-            <Polygon paths={zonaSulLeste} options={optionsZSL} />
-            <Polygon paths={zonaSulOeste} options={optionsZSO} />
-            <Polygon paths={zonaNorteOeste} options={optionsZNO} />
-            <Polygon paths={zonaNorteLeste} options={optionsZNL} />
-            <Polygon paths={area2HR} options={options2HR} />
-            <Polygon paths={ibipora} options={optionsIBI} />
-          </GoogleMap>
+        {/* {true ? (
+          <div ref={mapContainer} className="map-container"></div>
         ) : (
           <>
             <p>ERRO DE REQUISIÇÃO!</p>
           </>
-        )}
+        )} */}
+        <div ref={mapContainer} className="map-container"></div>
       </div>
     </>
   );
