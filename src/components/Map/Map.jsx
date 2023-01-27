@@ -3,19 +3,19 @@ import React, { useState, useEffect, useRef } from "react";
 import mapboxgl from 'mapbox-gl';
 import "./Map.css";
 
+const cityPosition = {
+  lat: -23.3116757,
+  lng: -51.1592102,
+};
+
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
-    lat: -23.3197,
-    lng: -51.1662,
+    lat: cityPosition.lat,
+    lng: cityPosition.lng,
   });
 
-  const cityPosition = {
-    lat: -23.3197,
-    lng: -51.1662,
-  };
-  
+ 
   const address = props.address;
-
   const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
 
   mapboxgl.accessToken = apiKey;
@@ -38,7 +38,6 @@ export function Map({ ...props }) {
   });
 
 
-
   // Map on load
   useEffect(() => {
     if (!map.current) return;
@@ -58,12 +57,12 @@ export function Map({ ...props }) {
       })
 
       map.current.addLayer({
-        'id': 'DrawZSulLeste',
+        'id': 'DrawzoneSulLeste',
         'type': 'fill',
-        'source': 'zSulLeste', // reference the data source
+        'source': 'zSulLeste', 
         'layout': {},
         'paint': {
-          'fill-color': '#fff', // blue color fill
+          'fill-color': '#235ced', 
           'fill-opacity': 0.3
         }
       });
@@ -94,7 +93,6 @@ export function Map({ ...props }) {
   }, [address]);
 
 
-
   // Polygon Data
   const zonaSulLeste = [[
   [ -51.1592102, -23.3116757 ],
@@ -122,8 +120,6 @@ export function Map({ ...props }) {
   [ -51.0853958, -23.3116757 ],
   [ -51.1592102, -23.3116757 ],
 ]]
-
-
 
   const optionsZSL = {
     fillColor: "blue",
