@@ -9,7 +9,7 @@ export function Map({ ...props }) {
   });
 
   const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
-  
+
   mapboxgl.accessToken = apiKey;
 
   const mapContainer = useRef(null);
@@ -17,27 +17,53 @@ export function Map({ ...props }) {
   const [zoom, setZoom] = useState(12);
 
   useEffect(() => {
+    console.log("@@@@@@@@@")
     if (map.current) return; // initialize map only once
+
     map.current = new mapboxgl.Map({
-    container: mapContainer.current,
-    style: 'mapbox://styles/mapbox/streets-v12',
-    center: [cityPosition.lng, cityPosition.lat],
-    zoom: zoom
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [cityPosition.lng, cityPosition.lat],
+      zoom: zoom,
+      antialias: true,
     });
   });
+
+
 
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
+    if (!map.current) return;
+    // wait for map to initialize
     map.current.on('load', () => {
-    setLng(map.current.getCenter().lng.toFixed(4));
-    setLat(map.current.getCenter().lat.toFixed(4));
-    setZoom(map.current.getZoom().toFixed(2));
+       setZoom(map.current.getZoom().toFixed(2));
+
+      map.current.addSource('zSulLeste', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': zonaSulLeste
+          }
+        }
+      })
+
+      map.current.addLayer({
+        'id': 'DrawZSulLeste',
+        'type': 'fill',
+        'source': 'zSulLeste', // reference the data source
+        'layout': {},
+        'paint': {
+          'fill-color': '#fff', // blue color fill
+          'fill-opacity': 0.3
+        }
+      });
     });
-  });
+  })
 
   const cityPosition = {
-    lat: -23.3197,
-    lng: -51.1662,
+    lat: -23.319797189377564,
+    lng: -51.16667335885555,
   };
 
   const address = props.address;
@@ -58,33 +84,37 @@ export function Map({ ...props }) {
       });
   }, [address]);
 
-  // Polygon
-  const zonaSulLeste = [
-    { lng: -51.1592102, lat: -23.3116757 },
-    { lng: -51.1592102, lat: -23.3810226 },
-    { lng: -51.1513138, lat: -23.3813378 },
-    { lng: -51.123333, lat: -23.375035 },
-    { lng: -51.1217022, lat: -23.371332 },
-    { lng: -51.1206722, lat: -23.368338 },
-    { lng: -51.123333, lat: -23.3632953 },
-    { lng: -51.1255646, lat: -23.359986 },
-    { lng: -51.1254787, lat: -23.3569129 },
-    { lng: -51.1248779, lat: -23.3544702 },
-    { lng: -51.1211014, lat: -23.3547066 },
-    { lng: -51.1183548, lat: -23.3532882 },
-    { lng: -51.1183548, lat: -23.3474569 },
-    { lng: -51.1168098, lat: -23.3424923 },
-    { lng: -51.1149216, lat: -23.3384337 },
-    { lng: -51.1127758, lat: -23.3362271 },
-    { lng: -51.1066818, lat: -23.3353207 },
-    { lng: -51.1024332, lat: -23.3352419 },
-    { lng: -51.0990429, lat: -23.3339022 },
-    { lng: -51.0956955, lat: -23.3318531 },
-    { lng: -51.0922623, lat: -23.3255479 },
-    { lng: -51.0941505, lat: -23.3162474 },
-    { lng: -51.0853958, lat: -23.3116757 },
-    { lng: -51.1592102, lat: -23.3116757 },
-  ];
+
+
+  // Polygon Data
+  const zonaSulLeste = [[
+  [ -51.1592102, -23.3116757 ],
+  [ -51.1592102, -23.3810226 ],
+  [ -51.1513138, -23.3813378 ],
+  [ -51.123333, -23.375035 ],
+  [ -51.1217022, -23.371332 ],
+  [ -51.1206722, -23.368338 ],
+  [ -51.123333, -23.3632953 ],
+  [ -51.1255646, -23.359986 ],
+  [ -51.1254787, -23.3569129 ],
+  [ -51.1248779, -23.3544702 ],
+  [ -51.1211014, -23.3547066 ],
+  [ -51.1183548, -23.3532882 ],
+  [ -51.1183548, -23.3474569 ],
+  [ -51.1168098, -23.3424923 ],
+  [ -51.1149216, -23.3384337 ],
+  [ -51.1127758, -23.3362271 ],
+  [ -51.1066818, -23.3353207 ],
+  [ -51.1024332, -23.3352419 ],
+  [ -51.0990429, -23.3339022 ],
+  [ -51.0956955, -23.3318531 ],
+  [ -51.0922623, -23.3255479 ],
+  [ -51.0941505, -23.3162474 ],
+  [ -51.0853958, -23.3116757 ],
+  [ -51.1592102, -23.3116757 ],
+]]
+
+
 
   const optionsZSL = {
     fillColor: "blue",
@@ -314,7 +344,7 @@ export function Map({ ...props }) {
     lat: -23.3843315,
     lng: -51.1348343
   }
-  
+
   const greenVillagePos = {
     lat: -23.298945,
     lng: -51.3202715
