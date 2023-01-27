@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 
 import mapboxgl from 'mapbox-gl';
 
-import 'mapbox-gl/dist/mapbox-gl.css';
-
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
     lat: -0,
@@ -11,11 +9,12 @@ export function Map({ ...props }) {
   });
 
   const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
+  
   mapboxgl.accessToken = apiKey;
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [zoom, setZoom] = useState(9);
+  const [zoom, setZoom] = useState(5);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -323,16 +322,7 @@ export function Map({ ...props }) {
 
   return (
     <>
-      <div className="map">
-        {/* {true ? (
-          <div ref={mapContainer} className="map-container"></div>
-        ) : (
-          <>
-            <p>ERRO DE REQUISIÇÃO!</p>
-          </>
-        )} */}
-        <div ref={mapContainer} className="map-container"></div>
-      </div>
+      <div ref={mapContainer} className="map-container"></div>
     </>
   );
 }

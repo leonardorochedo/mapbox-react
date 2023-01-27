@@ -8,7 +8,7 @@ import { Map } from "../Map/Map";
 
 export function Form() {
   const [address, setAddress] = useState("");
-  const [addressProp, setAddressProp] = useState("Tokyo");
+  const [addressProp, setAddressProp] = useState("Londrina");
 
   function consultAPI() {
     // Quando der enter vai passar o enderço como prop
@@ -48,9 +48,7 @@ export function Form() {
         </p>
       </div>
       <div className="map-table">
-        <div className="result">
-          <Map address={addressProp} />
-        </div>
+        <Map address={addressProp} />
         <div className="tecnics">
           <div className="tec1">
             <h3>Técnico 1</h3>
