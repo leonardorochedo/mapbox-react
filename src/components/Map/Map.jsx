@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import mapboxgl from 'mapbox-gl';
-
+import "./Map.css";
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
     lat: -0,
@@ -14,7 +14,7 @@ export function Map({ ...props }) {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [zoom, setZoom] = useState(5);
+  const [zoom, setZoom] = useState(12);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -28,7 +28,7 @@ export function Map({ ...props }) {
 
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
-    map.current.on('move', () => {
+    map.current.on('load', () => {
     setLng(map.current.getCenter().lng.toFixed(4));
     setLat(map.current.getCenter().lat.toFixed(4));
     setZoom(map.current.getZoom().toFixed(2));

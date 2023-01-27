@@ -52,11 +52,24 @@ header img {
   flex-direction: row;
 }
 
+.needFixLater{
+  position: absolute;
+  right: 5%;
+}
+
+.onUpdate{
+  background: linear-gradient(172deg, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00);
+  color: white;
+  -webkit-text-stroke-color: #1e1e1e;
+  -webkit-text-stroke-width: 1px;
+  margin-bottom: 5px;
+}
+
 .tecnics {
   display: flex;
   flex-direction: column;
   margin-top: -15rem;
-  margin-left: 55rem;
+  margin-left: 15rem;
 }
 
 .tec1,

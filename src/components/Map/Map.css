@@ -9,7 +9,10 @@ h1 {
   transition: 0.3s;
 }
 
-.map-container {
-  height: 400px;
-  width: 400px;
+.map-container
+{
+   height: 65vh;
+   width: 45vw;
+   border: 5px solid white;
+   box-shadow: 0 0 5px 0px #393939
 }
