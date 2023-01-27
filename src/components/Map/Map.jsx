@@ -5,9 +5,16 @@ import "./Map.css";
 
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
-    lat: -0,
-    lng: -0,
+    lat: -23.3197,
+    lng: -51.1662,
   });
+
+  const cityPosition = {
+    lat: -23.3197,
+    lng: -51.1662,
+  };
+  
+  const address = props.address;
 
   const apiKey = 'pk.eyJ1IjoibGVvbmFyZG9yb2NoZWRvIiwiYSI6ImNsZGRwN24zbTAzd3Izbmx5NzQ0ODhvMWcifQ.ygBb5egpTo10IFk1lDc_rA'
   
@@ -17,8 +24,9 @@ export function Map({ ...props }) {
   const map = useRef(null);
   const [zoom, setZoom] = useState(12);
 
+  // Create a Map
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
     style: 'mapbox://styles/mapbox/streets-v12',
@@ -27,6 +35,7 @@ export function Map({ ...props }) {
     });
   });
 
+  // Map on move
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on('load', () => {
@@ -36,12 +45,12 @@ export function Map({ ...props }) {
     });
   });
 
-  const cityPosition = {
-    lat: -23.3197,
-    lng: -51.1662,
-  };
-
-  const address = props.address;
+  // Map Marker
+  useEffect(() => {
+    const marker = new mapboxgl.Marker()
+      .setLngLat([clientCoord.lng, clientCoord.lat])
+      .addTo(map.current);
+  }, [address])
 
   // API Geocoding
   useEffect(() => {
@@ -58,25 +67,6 @@ export function Map({ ...props }) {
         }
       });
   }, [address]);
-
-  // Marker
-  const lgnlat = [clientCoord.lng, clientCoord.lat]
-  // create a HTML element for each feature
-  // const el = document.createElement('div');
-  // el.className = 'marker';
-  
-  // make a marker for each feature and add to the map
-  // mapboxgl.Marker(el).setLngLat(lgnlat).addTo(map);
-
-  // mapboxgl.Marker(el)
-  // .setLngLat(lgnlat)
-  // .setPopup(
-  //   mapboxgl.Popup({ offset: 25 }) // add popups
-  //     .setHTML(
-  //       `<h3>Cliente</h3><p>Casa</p>`
-  //     )
-  // )
-  // .addTo(map);
 
   // Polygon
   const zonaSulLeste = [
