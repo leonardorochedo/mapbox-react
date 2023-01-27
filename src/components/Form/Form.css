@@ -49,13 +49,13 @@ header img {
 
 .map-table {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.needFixLater{
+/* .needFixLater{
   position: absolute;
-  right: 5%;
-}
+  right: 10%;
+} */
 
 .onUpdate{
   background: linear-gradient(172deg, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00);
@@ -67,9 +67,10 @@ header img {
 
 .tecnics {
   display: flex;
-  flex-direction: column;
-  margin-top: -15rem;
-  margin-left: 15rem;
+  flex-direction: row;
+  align-items: flex-start;
+  /* margin-top: -15rem; */
+  /* margin-left: 15rem; */
 }
 
 .tec1,
@@ -79,7 +80,7 @@ header img {
   display: flex;
   flex-direction: column;
   width: 140px;
-  margin: 0 1.5rem;
+  margin: 0 4rem;
 }
 
 .tec1 h3,

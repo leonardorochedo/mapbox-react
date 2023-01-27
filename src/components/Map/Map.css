@@ -12,7 +12,28 @@ h1 {
 .map-container
 {
    height: 65vh;
-   width: 45vw;
+   width: 60vw;
    border: 5px solid white;
-   box-shadow: 0 0 5px 0px #393939
+   box-shadow: 0 0 5px 0px #393939;
+
+   /* margin-left: 10rem; */
+}
+
+/* marker */
+.marker {
+  background-image: url('mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }

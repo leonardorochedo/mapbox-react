@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import mapboxgl from 'mapbox-gl';
 import "./Map.css";
+
 export function Map({ ...props }) {
   const [clientCoord, setClientCoord] = useState({
     lat: -0,
@@ -57,6 +58,25 @@ export function Map({ ...props }) {
         }
       });
   }, [address]);
+
+  // Marker
+  const lgnlat = [clientCoord.lng, clientCoord.lat]
+  // create a HTML element for each feature
+  // const el = document.createElement('div');
+  // el.className = 'marker';
+  
+  // make a marker for each feature and add to the map
+  // mapboxgl.Marker(el).setLngLat(lgnlat).addTo(map);
+
+  // mapboxgl.Marker(el)
+  // .setLngLat(lgnlat)
+  // .setPopup(
+  //   mapboxgl.Popup({ offset: 25 }) // add popups
+  //     .setHTML(
+  //       `<h3>Cliente</h3><p>Casa</p>`
+  //     )
+  // )
+  // .addTo(map);
 
   // Polygon
   const zonaSulLeste = [
