@@ -117,6 +117,137 @@ export function Map({ ...props }) {
             'fill-opacity': coordinates.optionsZNO.fillOpacity
         }})
 
+        // zonaNorteLeste
+        map.current.addSource('zonaNorteLeste', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.zonaNorteLeste
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawZonaNorteLeste',
+          'type': 'fill',
+          'source': 'zonaNorteLeste',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.optionsZNL.fillColor,
+            'fill-opacity': coordinates.optionsZNL.fillOpacity
+        }})
+
+        // jataizinho
+        map.current.addSource('jataizinho', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.jataizinho
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawJataizinho',
+          'type': 'fill',
+          'source': 'jataizinho',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.options2HR.fillColor,
+            'fill-opacity': coordinates.options2HR.fillOpacity
+        }})
+
+        // greenVillage
+        map.current.addSource('greenVillage', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.greenVillage
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawGreenVillage',
+          'type': 'fill',
+          'source': 'greenVillage',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.options2HR.fillColor,
+            'fill-opacity': coordinates.options2HR.fillOpacity
+        }})
+
+        // cambe
+        map.current.addSource('uniao', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.uniao
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawUniao',
+          'type': 'fill',
+          'source': 'uniao',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.options2HR.fillColor,
+            'fill-opacity': coordinates.options2HR.fillOpacity
+        }})
+
+        // cambe
+        map.current.addSource('cambe', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.cambe
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawCambe',
+          'type': 'fill',
+          'source': 'cambe',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.options2HR.fillColor,
+            'fill-opacity': coordinates.options2HR.fillOpacity
+        }})
+
+        // ibipora
+        map.current.addSource('ibipora', {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': coordinates.ibipora
+            }
+          }
+        })
+  
+        map.current.addLayer({
+          'id': 'drawIbipora',
+          'type': 'fill',
+          'source': 'ibipora',
+          'layout': {},
+          'paint': {
+            'fill-color':  coordinates.optionsIBI.fillColor,
+            'fill-opacity': coordinates.optionsIBI.fillOpacity
+        }})
     });
   }, [])
 
