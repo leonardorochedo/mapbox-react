@@ -1,5 +1,6 @@
 header img {
-  width: 15rem;
+  width: 7rem;
+  margin-bottom: 2rem;
 }
 
 .form p {
@@ -35,7 +36,7 @@ header img {
   height: 2rem;
   margin-left: 1rem;
 
-  background-color: #35a9e1;
+  background-color: #0948f5;
   border: 1px solid black;
   color: white;
   transition: 0.3s;
@@ -50,99 +51,4 @@ header img {
 .map-table {
   display: flex;
   flex-direction: column;
-}
-
-/* .needFixLater{
-  position: absolute;
-  right: 10%;
-} */
-
-.onUpdate{
-  background: linear-gradient(172deg, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00, black, #f7fb00);
-  color: white;
-  -webkit-text-stroke-color: #1e1e1e;
-  -webkit-text-stroke-width: 1px;
-  margin-bottom: 5px;
-}
-
-.tecnics {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  /* margin-top: -15rem; */
-  /* margin-left: 15rem; */
-}
-
-.tec1,
-.tec2,
-.others1,
-.others2 {
-  display: flex;
-  flex-direction: column;
-  width: 140px;
-  margin: 0 4rem;
-}
-
-.tec1 h3,
-.tec2 h3,
-.others1 h3,
-.others2 h3 {
-  color: black;
-  margin: 2rem 0 1rem 0;
-}
-
-.others1 h3:first-child {
-  margin: 2rem 0 0;
-}
-
-.tec1 p,
-.tec2 p,
-.others1 p,
-.others2 p {
-  color: white;
-  margin: 0.5rem 0;
-  border: 1px solid black;
-}
-
-.others1 li {
-  font-family: sans-serif;
-  border: none;
-  width: 300px;
-  text-align: left;
-  margin-left: -50px;
-  margin-top: 0.5rem;
-  color: black;
-}
-
-#final-li {
-  margin: 0.5rem 0 1.5rem -50px;
-}
-
-.tec1 p#soon {
-  background-color: black;
-}
-
-.tec1 p#late {
-  background-color: yellow;
-  color: black;
-}
-
-.tec2 p#soon {
-  background-color: blue;
-}
-
-.tec2 p#late {
-  background-color: red;
-}
-
-.others1 p#cambe {
-  background-color: purple;
-}
-
-.others1 p#uniao {
-  background-color: purple;
-}
-
-.others2 p#ibipora {
-  background-color: orange;
 }
